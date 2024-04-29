@@ -1,0 +1,62 @@
+import matplotlib.pyplot as plt
+
+def get_whisky_quadrant(smokiness, richness):
+  """
+  This function takes normalized smokiness and richness values (-1 to 1 scale) and returns the corresponding whisky quadrant.
+
+  Args:
+      smokiness: A value between -1 (not smoky) and 1 (very smoky).
+      richness: A value between -1 (not rich) and 1 (very rich).
+
+  Returns:
+      A string representing the whisky quadrant ("Delicate", "Smokey & Rich", "Rich & Mellow", "Light & Malty").
+  """
+
+  # Define thresholds for each quadrant (adjusted for -1 to 1 scale)
+  smoke_threshold = 0
+  richness_threshold = 0
+
+  if smokiness <= smoke_threshold and richness <= richness_threshold:
+    return "Delicate"
+  elif smokiness > smoke_threshold and richness > richness_threshold:
+    return "Smokey & Rich"
+  elif smokiness <= smoke_threshold and richness > richness_threshold:
+    return "Rich & Mellow"
+  else:
+    return "Light & Malty"
+
+# Example usage (assuming smokiness and richness values are already normalized)
+smokiness = 0.7
+richness = -0.3
+
+quadrant = get_whisky_quadrant(smokiness, richness)
+print(f"The whisky falls into the '{quadrant}' quadrant.")
+
+# Plot the whisky quadrants
+fig, ax = plt.subplots()
+
+# Define quadrant boundaries as lines
+ax.axhline(y=0, color='black', linestyle='--')
+ax.axvline(x=0, color='black', linestyle='--')
+
+# Label quadrants
+ax.text(x=-0.5, y=0.5, s="Delicate", ha='center', va='center')
+ax.text(x=0.5, y=0.5, s="Smokey & Rich", ha='center', va='center')
+ax.text(x=-0.5, y=-0.5, s="Rich & Mellow", ha='center', va='center')
+ax.text(x=0.5, y=-0.5, s="Light & Malty", ha='center', va='center')
+
+# Set limits from -1 to 1
+ax.set_xlim([-1, 1])
+ax.set_ylim([-1, 1])
+
+# Label axes
+ax.set_xlabel('Smokiness')
+ax.set_ylabel('Richness')
+
+# Plot a point for the example whisky (replace with your data)
+ax.scatter(smokiness, richness, color='red')
+
+# Add title
+ax.set_title('Whisky Quadrant Chart (Normalized Scale)')
+
+plt.show()
