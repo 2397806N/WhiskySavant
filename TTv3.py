@@ -211,10 +211,3 @@ st.image("C:/Users/Thomson Tan/OneDrive - Nanyang Technological University/TFIPG
 # Run the app
 if __name__ == "__main__":
     main()
-
-git add .
-git commit -m "Initial commit"
-git remote add origin https://github.com/2397806N/WhiskySavant.git
-git push -u origin main
-
-git push origin main
