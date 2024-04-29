@@ -1,7 +1,5 @@
 numpy
 pandas
-string
-re
 nltk
 genism
 sklearn
