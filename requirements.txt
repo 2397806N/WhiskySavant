@@ -1,4 +1,3 @@
---use-pep517
 numpy
 pandas
 nltk
