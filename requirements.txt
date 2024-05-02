@@ -1,7 +1,7 @@
 numpy
 pandas
 nltk
-gensim==4.1.0
+gensim
 scikit-learn
 streamlit
 scipy
